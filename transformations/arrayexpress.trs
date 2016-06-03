@@ -8,6 +8,9 @@ transform column "$.'experiment'.'releasedate'.'_$'" to "dataset.dateReleased";
 transform column "$.'experiment'.'submissiondate'.'_$'" to "dataset.dateSubmitted";
 transform column "$.'experiment'.'lastupdatedate'.'_$'" to "dataset.dateModified";
 transform column "$.'experiment'.'experimenttype'.'_$'" to "dataset.dataType";
+transform column "$.'experiment'.'accession'.'_$'" to "dataset.accesstypes" apply {{ result = 'download' }};
+transform column "$.'experiment'.'accession'.'_$'" to "dataset.authorization" apply {{ result = 'none' }};
+transform column "$.'experiment'.'accession'.'_$'" to "dataset.authentication" apply {{ result = 'none' }};
 
 /* Data Collection Information */
 transform column "$.'experiment'.'experimentdesign'.'_$'" to "treatment.title";
